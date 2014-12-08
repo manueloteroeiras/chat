@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html>
+	<head><meta http-equiv="content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electro927</title>
+    <link href="./content/bootstrap.css" rel="stylesheet" type="text/css">
+
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+	<link href="http://fonts.googleapis.com/css?family=Oswald:300,400,700" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Source+Sans Pro:200italic,200,300italic,300,400italic,400,600italic,600,700italic,700,900italic,900" rel="stylesheet" type="text/css">
+	<link href="./content/site.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+	<link href="./content/palette1.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="content/style.css" />
+        
+        
+        <!--SCRIPTS-->
+	<script src="./scripts/jquery-2.1.1.js"></script>
+    <script src="./scripts/bootstrap.js"></script>    
+    <script src="https://cdn.firebase.com/js/client/2.0.5/firebase.js"></script>
+    <script src="scripts/backOffice.js" type="text/javascript"></script>
+    <script src="./productos/Ofertas.js" type="text/javascript"></script>
+        
+        <!--STYLE-->
+    <style>
+        figure{
+            height: 172px;
+        }
+        .map{
+            border-radius:20px;
+            overflow-x:scroll;
+
+        }
+        body{
+            overflow-x:hidden;
+        }
+        .box {
+            background-color: #EE7B3E;
+            border: 6px solid white;
+            border-radius:20px;
+            height: 373px;
+           
+            
+        }
+        .img-product{
+            border-radius:10px;
+            
+        }
+                .social-btn{
+            position: fixed;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+            height: 50px;
+            z-index: 1000;
+       }
+       .face{
+            left: -85px;
+            top: 58%;
+       }
+       .ml{
+        opacity: .8;
+        border-radius: 10px;
+        width: 130px;
+        position: absolute;
+        top: 5px;
+        right: 40px;
+        z-index: 1000;
+        height: 40px;
+       }
+       .ml:hover{
+        opacity: 1;
+       }
+        #carousel-campaigns img{
+            border-radius: 10px;
+        }
+        #section-services .icon:hover{
+            background-color: #ffffff ;
+            border: 7px solid #EE7B3E;
+        }
+        #text-quienes-somos p{
+            font-family: 'Ubuntu', sans-serif;
+        }
+
+    </style>
+</head>
+<body>
+
+<div id="navbar-main" class="navbar navbar-default navbar-static-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="#" class="navbar-brand"></a>
+        </div>
+        <div class="navbar-collapse collapse" style="float:left; margin-left:-80px">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#section-intro" class="ancla">QUIENES SOMOS</a></li>
+                <li><a href="#section-services" class="ancla">SERVICIOS</a></li>
+                <li><a href="#donde-estamos" class="ancla">DONDE ESTAMOS</a></li>
+                <li><a id="showMore" href="#section-clients" class="ancla">PROVEEDORES</a></li>
+                <li><a href="#section-contact" class="ancla">CONTACTO</a></li>
+                <li> <button id="info"></button></li>
+                <li style="margin-left:250px;margin-top:5px;display:inline;"><a href="#section-campaigns" style="padding:10px;" class="contact-btn-nav-bar ancla">Ofertas</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<img class="social-btn face" src="imagenes/facebook.png"/>
+<img class="ml" src="imagenes/mercadolibre.png"/>
+
+
+<section id="banner-main" style="height:450px">
+    <img src="banner.png" width="100%" />
+    <!--<div id="carousel-applications" class="carousel slide" data-ride="carousel">
+
+        <!-- Indicators 
+        <ol class="carousel-indicators">
+            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                  
+        </ol>
+
+        <!-- Wrapper for slides 
+        <div class="carousel-inner">
+		
+			<div class="item active" style="background-image: url()
+					<div class="row"style="margin-top: 80px">
+						<div class="col-xs-12 text-center">
+							<img src="./content/logo.png" style="margin-top: -10px">
+							<h2 style="margin-top: 60px;"></h2>
+							<a href="#section-contact" class="btn btn-primary btn-lg">CONTÁCTENOS</a>
+						</div>
+					</div>
+				</div>				
+            </div>
+            
+            
+    -->     
+
+
+			
+            <!--<div class="item" style="background-image: url(./content/matchforpeace2.jpg);">
+				<div class="container" >
+					<div class="row"style="margin-top: 80px">
+						<div class="col-xs-12 col-sm-5 col-sm-offset-6 text-left">
+							<h2 style="font-size: 50px; line-height: 1">Partido por la Paz</h2>
+							<h3 style="line-height: 1">Estadio Olimpico, ROMA - 1° de Septiembre</h3>
+							<img src="./Content/logo.png" style="margin-top: 10px; width: 395px;">
+						</div>
+					</div>
+				</div>
+            </div>
+                 
+            <div class="item" style="background-image: url(content/campa%C3%B1as-ole-tiki.jpg);">
+				<div class="container" >
+					<div class="row"style="margin-top: 80px">	
+					</div>
+				</div>
+            </div>
+            
+            <div class="item" style="background-image: url(content/campa%C3%B1as-quilmes-2.jpg);">
+				<div class="container" >
+					<div class="row"style="margin-top: 80px">	
+					</div>
+				</div>
+            </div>-->
+            
+            
+        
+
+        <!-- Controls 
+        <a class="left carousel-control" href="http://agrodrone.farm/#carousel-applications" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+        <a class="right carousel-control" href="http://agrodrone.farm/#carousel-applications" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>-->
+
+    
+    
+</section>
+
+<section id="section-intro">
+
+    <h2 class="division-header text-center"><span>¿Quienes Somos?</span></h2>
+
+    <div class="container">
+        <div class="row">
+            <article class="col-xs-12 col-sm-7 text-center">
+				<img style="border-radius:10px;" src="quienes-somos.png"  width="100%"/>
+            </article>
+            <article id="text-quienes-somos" class="col-xs-12 col-sm-5">
+                <p align="justify">Somos una Empresa que inicia su actividad teniendo como premisa el brindar un servicio más allá de la venta, para ello volcamos nuestro conocimiento y Know how a los Profesionales, Instaladores, al Gremio y al Hogar</p>
+				<p align="justify"> Nuestros ideales son proporcionar el mejor asesoramiento para que sus proyectos eléctricos y de iluminación cuenten con la mayor seguridad y el mejor costo-beneficio, lo cual redundará en una mayor rentabilidad y tranquilidad en sus trabajos.</p>
+				<p align="justify"></p>
+            </article>
+        </div>
+    </div>
+
+</section>
+
+
+<section id="section-campaigns" style="background-color: #838486; ">
+    <h2 id="oferts" class="division-header text-center"><span>Ofertas</span></h2>
+        <div class="container" style="padding-bottom:20px;padding-top:20px;">
+
+        <div id="carousel-campaigns" class="carousel slide" data-ride="carousel">
+
+        <!-- Indicators -->
+         <ol class="carousel-indicators"  style="margin-top: 50px;bottom:-15px; ">
+            <li data-target="#carousel-campaigns" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-campaigns" data-slide-to="1" class=""></li>
+            <li data-target="#carousel-campaigns" data-slide-to="2" class=""></li>   
+       </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <div class="row">
+        
+                <div class="col-xs-12 col-sm-4">
+                <article class="thumbnail text-center box">
+                    <figure><img id="img1" class="img-product"  width="172" /></figure>
+                        <div id="producto1" class="product-name">
+                            <h1></h1><h2><span></span></h2>
+                            <a class="btn btn-lg contact-btn" data-toggle="modal" data-target="#backoffice1">Editar</a>
+                        </div>
+                </article>
+            </div>
+            
+            <div class="col-xs-12 col-sm-4">
+                <article class="thumbnail text-center box">
+                    <figure><img id="img2" data-toggle="modal" data-target="#backoffice" class="img-product" width="172" /></figure>
+                        <div id="producto2" class="product-name">
+                            <h1></h1><h2><span></span></h2>
+                            <a class="btn btn-lg contact-btn" data-toggle="modal" data-target="#backoffice2">Editar</a>
+                        </div>
+                </article>
+            </div>
+            
+            <div class="col-xs-12 col-sm-4">
+                <article class="thumbnail text-center box">
+                    <figure><img id="img3" class="img-product" width="172" /></figure>
+                        <div id="producto3" class="product-name">
+                            <h1></h1><h2><span></span></h2>
+                            <a class="btn btn-lg contact-btn" data-toggle="modal" data-target="#backoffice3">Editar</a>
+                        </div>
+                </article>
+            </div>
+            
+        </div>          
+   </div>
+            
+                 <div class="item">
+            <div class="row">
+        
+                <div class="col-xs-12 col-sm-4">
+                <article class="thumbnail text-center box">
+                    <figure><img id="img4" class="img-product"  width="172" /></figure>
+                        <div id="producto4" class="product-name">
+                            <h1></h1><h2><span></span></h2>
+                            <a class="btn btn-lg contact-btn" data-toggle="modal" data-target="#backoffice4">Editar</a>
+                        </div>
+                </article>
+            </div>
+            
+            <div class="col-xs-12 col-sm-4">
+                <article class="thumbnail text-center box">
+                    <figure><img id="img5" class="img-product" width="172" /></figure>
+                        <div id="producto5" class="product-name">
+                            <h1></h1><h2><span></span></h2>
+                            <a class="btn btn-lg contact-btn" data-toggle="modal" data-target="#backoffice5">Editar</a>
+                        </div>
+                </article>
+            </div>
+            
+            <div class="col-xs-12 col-sm-4">
+                <article class="thumbnail text-center box">
+                    <figure><img id="img6" class="img-product" width="172" /></figure>
+                        <div id="producto6" class="product-name">
+                            <h1></h1><h2><span></span></h2>
+                            <a class="btn btn-lg contact-btn" data-toggle="modal" data-target="#backoffice6">Editar</a>
+                        </div>
+                </article>
+            </div>
+            
+        </div>          
+   </div>
+            
+            <div class="item">
+            <div class="row">
+        
+                <div class="col-xs-12 col-sm-4">
+                <article class="thumbnail text-center box">
+                    <figure><img id="img7" class="img-product" width="172" /></figure>
+                        <div id="producto7" class="product-name">
+                            <h1></h1><h2><span></span></h2>
+                            <a class="btn btn-lg contact-btn" data-toggle="modal" data-target="#backoffice7">Editar</a>
+                        </div>
+                </article>
+            </div>
+            
+            <div class="col-xs-12 col-sm-4">
+                <article class="thumbnail text-center box">
+                    <figure><img id="img8" class="img-product" width="172" /></figure>
+                        <div id="producto8" class="product-name">
+                            <h1></h1><h2><span></span></h2>
+                            <a class="btn btn-lg contact-btn" data-toggle="modal" data-target="#backoffice8">Editar</a>
+                        </div>
+                </article>
+            </div>
+            
+            <div class="col-xs-12 col-sm-4">
+                <article class="thumbnail text-center box">
+                    <figure><img id="img9" class="img-product" width="172" /></figure>
+                        <div id="producto9" class="product-name">
+                            <h1></h1><h2><span></span></h2>
+                            <a class="btn btn-lg contact-btn" data-toggle="modal" data-target="#backoffice9">Editar</a>
+                        </div>
+                </article>
+            </div>
+            
+        </div>          
+   </div>
+   </div>   
+
+    </div>
+        <!-- Controls -->
+        <a style="margin-top:145px;" class="left carousel-control" href="#carousel-campaigns" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+        <a style="margin-top:145px;" class="right carousel-control" href="#carousel-campaigns" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+
+    </div>
+</section>
+        
+            
+<section id="section-campaigns"><span id="donde-estamos"></span>
+        <h2 class="division-header text-center" style="z-index:5"><span>Donde Estamos</span></h2>
+    
+    <p style="left:50%; position:relative;margin-left:-500px"><iframe  src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3291.456809344054!2d-58.700418!3d-34.41515!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95bca19a4a760785%3A0xdc8e88328e5b831b!2sElectro+927!5e0!3m2!1ses-419!2sar!4v1414539443568" width="1000" height="300" frameborder="0" style="border-radius:10px;border:3px outset #808080"></iframe>
+    </p>
+</section>
+
+
+
+
+    <div id="backoffice1" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #FCAA7E">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">Contacto</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="panel panel-default">
+
+                        <header class="panel-heading">
+                            <h4><img style="margin:0 10px;" src="imagenes/tel.png" width="30" /></h4>
+                        </header>
+                        <div class="panel-body">
+
+                            <div class="form-group">
+                                <input id="nombre1" type="name" class="form-control" placeholder=" Nombre.." />
+                            </div>
+                            <div class="form-group">
+                                <input id="precio1" type="text" class="form-control" placeholder=" precio.." />
+                            </div>
+                            <div class="form-group">
+                                <input id="url1" class="form-control" type="text" placeholder="Url Imagen.." />
+                            </div>
+                            <div class="form-group">
+                                <a id="modificar1" class="btn btn-primary btn-block btn-lg">Guardar Cambios</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="backoffice2" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #FCAA7E">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">Editar</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="panel panel-default">
+
+                        <header class="panel-heading">
+                            <h4><img style="margin:0 10px;" src="imagenes/tel.png" width="30" /></h4>
+                        </header>
+                        <div class="panel-body">
+
+                            <div class="form-group">
+                                <input id="nombre2" type="name" class="form-control" placeholder=" Nombre.." />
+                            </div>
+                            <div class="form-group">
+                                <input id="precio2" type="text" class="form-control" placeholder=" precio.." />
+                            </div>
+                            <div class="form-group">
+                                <input id="url2" class="form-control" type="text" placeholder="Url Imagen.." />
+                            </div>
+                            <div class="form-group">
+                                <a id="modificar2" class="btn btn-primary btn-block btn-lg">Guardar Cambios</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="backoffice3" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #FCAA7E">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">Contacto</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="panel panel-default">
+
+                        <header class="panel-heading">
+                            <h4><img style="margin:0 10px;" src="imagenes/tel.png" width="30" /></h4>
+                        </header>
+                        <div class="panel-body">
+
+                            <div class="form-group">
+                                <input id="nombre3" type="name" class="form-control" placeholder=" Nombre.." />
+                            </div>
+                            <div class="form-group">
+                                <input id="precio3" type="text" class="form-control" placeholder=" precio.." />
+                            </div>
+                            <div class="form-group">
+                                <input id="url3" class="form-control" type="text" placeholder="Url Imagen.." />
+                            </div>
+                            <div class="form-group">
+                                <a id="modificar3" class="btn btn-primary btn-block btn-lg">Guardar Cambios</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <div id="backoffice4" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #FCAA7E">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">Contacto</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="panel panel-default">
+
+                        <header class="panel-heading">
+                            <h4><img style="margin:0 10px;" src="imagenes/tel.png" width="30" /></h4>
+                        </header>
+                        <div class="panel-body">
+
+                            <div class="form-group">
+                                <input id="nombre4" type="name" class="form-control" placeholder=" Nombre.." />
+                            </div>
+                            <div class="form-group">
+                                <input id="precio4" type="text" class="form-control" placeholder=" precio.." />
+                            </div>
+                            <div class="form-group">
+                                <input id="url4" class="form-control" type="text" placeholder="Url Imagen.." />
+                            </div>
+                            <div class="form-group">
+                                <a id="modificar4" class="btn btn-primary btn-block btn-lg">Guardar Cambios</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="backoffice5" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #FCAA7E">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">Contacto</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="panel panel-default">
+
+                        <header class="panel-heading">
+                            <h4><img style="margin:0 10px;" src="imagenes/tel.png" width="30" /></h4>
+                        </header>
+                        <div class="panel-body">
+
+                            <div class="form-group">
+                                <input id="nombre5" type="name" class="form-control" placeholder=" Nombre.." />
+                            </div>
+                            <div class="form-group">
+                                <input id="precio5" type="text" class="form-control" placeholder=" precio.." />
+                            </div>
+                            <div class="form-group">
+                                <input id="url5" class="form-control" type="text" placeholder="Url Imagen.." />
+                            </div>
+                            <div class="form-group">
+                                <a id="modificar5" class="btn btn-primary btn-block btn-lg">Guardar Cambios</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <div id="backoffice6" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #FCAA7E">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">Contacto</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="panel panel-default">
+
+                        <header class="panel-heading">
+                            <h4><img style="margin:0 10px;" src="imagenes/tel.png" width="30" /></h4>
+                        </header>
+                        <div class="panel-body">
+
+                            <div class="form-group">
+                                <input id="nombre6" type="name" class="form-control" placeholder=" Nombre.." />
+                            </div>
+                            <div class="form-group">
+                                <input id="precio6" type="text" class="form-control" placeholder=" precio.." />
+                            </div>
+                            <div class="form-group">
+                                <input id="url6" class="form-control" type="text" placeholder="Url Imagen.." />
+                            </div>
+                            <div class="form-group">
+                                <a id="modificar6" class="btn btn-primary btn-block btn-lg">Guardar Cambios</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="backoffice7" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #FCAA7E">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">Contacto</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="panel panel-default">
+
+                        <header class="panel-heading">
+                            <h4><img style="margin:0 10px;" src="imagenes/tel.png" width="30" /></h4>
+                        </header>
+                        <div class="panel-body">
+
+                            <div class="form-group">
+                                <input id="nombre7" type="name" class="form-control" placeholder=" Nombre.." />
+                            </div>
+                            <div class="form-group">
+                                <input id="precio7" type="text" class="form-control" placeholder=" precio.." />
+                            </div>
+                            <div class="form-group">
+                                <input id="url7" class="form-control" type="text" placeholder="Url Imagen.." />
+                            </div>
+                            <div class="form-group">
+                                <a id="modificar7" class="btn btn-primary btn-block btn-lg">Guardar Cambios</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="backoffice8" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #FCAA7E">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">Contacto</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="panel panel-default">
+
+                        <header class="panel-heading">
+                            <h4><img style="margin:0 10px;" src="imagenes/tel.png" width="30" /></h4>
+                        </header>
+                        <div class="panel-body">
+
+                            <div class="form-group">
+                                <input id="nombre8" type="name" class="form-control" placeholder=" Nombre.." />
+                            </div>
+                            <div class="form-group">
+                                <input id="precio8" type="text" class="form-control" placeholder=" precio.." />
+                            </div>
+                            <div class="form-group">
+                                <input id="url8" class="form-control" type="text" placeholder="Url Imagen.." />
+                            </div>
+                            <div class="form-group">
+                                <a id="modificar8" class="btn btn-primary btn-block btn-lg">Guardar Cambios</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="backoffice9" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #FCAA7E">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">Contacto</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="panel panel-default">
+
+                        <header class="panel-heading">
+                            <h4><img style="margin:0 10px;" src="imagenes/tel.png" width="30" /></h4>
+                        </header>
+                        <div class="panel-body">
+
+                            <div class="form-group">
+                                <input id="nombre9" type="name" class="form-control" placeholder=" Nombre.." />
+                            </div>
+                            <div class="form-group">
+                                <input id="precio9" type="text" class="form-control" placeholder=" precio.." />
+                            </div>
+                            <div class="form-group">
+                                <input id="url9" class="form-control" type="text" placeholder="Url Imagen.." />
+                            </div>
+                            <div class="form-group">
+                                <a id="modificar9" class="btn btn-primary btn-block btn-lg">Guardar Cambios</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+    
+
+<script type="text/javascript">
+    //show button facebook
+    $(".social-btn").mouseenter(function () {
+        $(this).css("left" , "0")
+    });   
+    $(".social-btn").mouseleave(function () {
+        $(this).delay(300).css("left" , "-85px")
+    });
+
+
+    $('.ancla').click(function(){
+        var link = $(this);
+        var anchor  = link.attr('href');
+        $('html, body').stop().animate({
+            scrollTop: jQuery(anchor).offset().top
+        }, 1000);
+        return false;
+    });
+    
+    
+    
+    $('#modificar1').click(function(){
+        var product1 = Productosref.child("product1");
+        var nombreproducto1 = $("#nombre1").val();
+        var precioproducto1 = $("#precio1").val();
+        var imgproducto1 = $("#url1").val();
+         product1.update({ "Nombre" : nombreproducto1,
+                            "precio" : precioproducto1,
+                            "imgUrl" : imgproducto1,
+                         })
+     $("#backoffice1").modal('toggle');
+});
+    
+    $('#modificar2').click(function(){
+        var product2 = Productosref.child("product2");
+        var nombreproducto2 = $("#nombre2").val();
+        var precioproducto2 = $("#precio2").val();
+        var imgproducto2 = $("#url2").val();
+         product2.update({ "Nombre" : nombreproducto2,
+                            "precio" : precioproducto2,
+                            "imgUrl" : imgproducto2,
+                         });
+     $("#backoffice2").modal('toggle');        
+});
+                           
+        $('#modificar3').click(function(){
+        var product3 = Productosref.child("product3");
+        var nombreproducto3 = $("#nombre3").val();
+        var precioproducto3 = $("#precio3").val();
+        var imgproducto3 = $("#url3").val();
+         product3.update({ "Nombre" : nombreproducto3,
+                            "precio" : precioproducto3,
+                            "imgUrl" : imgproducto3,
+                         });
+     $("#backoffice3").modal('toggle');
+});
+                               
+            $('#modificar4').click(function(){
+        var product4 = Productosref.child("product4");
+        var nombreproducto4 = $("#nombre4").val();
+        var precioproducto4 = $("#precio4").val();
+        var imgproducto4 = $("#url4").val();
+         product4.update({ "Nombre" : nombreproducto4,
+                            "precio" : precioproducto4,
+                            "imgUrl" : imgproducto4,
+                         });
+     $("#backoffice4").modal('toggle');
+});
+    
+    $('#modificar5').click(function(){
+        var product5 = Productosref.child("product5");
+        var nombreproducto5 = $("#nombre5").val();
+        var precioproducto5 = $("#precio5").val();
+        var imgproducto5 = $("#url5").val();
+         product5.update({ "Nombre" : nombreproducto5,
+                            "precio" : precioproducto5,
+                            "imgUrl" : imgproducto5,
+                         });
+     $("#backoffice5").modal('toggle');
+});
+               
+    $('#modificar6').click(function(){
+        var product6 = Productosref.child("product6");
+        var nombreproducto6 = $("#nombre6").val();
+        var precioproducto6 = $("#precio6").val();
+        var imgproducto6 = $("#url6").val();
+         product6.update({ "Nombre" : nombreproducto6,
+                            "precio" : precioproducto6,
+                            "imgUrl" : imgproducto6,
+                         });
+     $("#backoffice6").modal('toggle');
+});
+               
+    $('#modificar7').click(function(){
+        var product7 = Productosref.child("product7");
+        var nombreproducto7 = $("#nombre7").val();
+        var precioproducto7 = $("#precio7").val();
+        var imgproducto7 = $("#url7").val();
+         product7.update({ "Nombre" : nombreproducto7,
+                            "precio" : precioproducto7,
+                            "imgUrl" : imgproducto7,
+                         });
+     $("#backoffice7").modal('toggle');
+});
+               
+    $('#modificar8').click(function(){
+        var product8 = Productosref.child("product8");
+        var nombreproducto8 = $("#nombre8").val();
+        var precioproducto8 = $("#precio8").val();
+        var imgproducto8 = $("#url8").val();
+         product8.update({ "Nombre" : nombreproducto8,
+                            "precio" : precioproducto8,
+                            "imgUrl" : imgproducto8,
+                         });
+     $("#backoffice8").modal('toggle');
+});
+               
+    $('#modificar9').click(function(){
+        var product9 = Productosref.child("product9");
+        var nombreproducto9 = $("#nombre9").val();
+        var precioproducto9 = $("#precio9").val();
+        var imgproducto9 = $("#url9").val();
+         product9.update({ "Nombre" : nombreproducto9,
+                            "precio" : precioproducto9,
+                            "imgUrl" : imgproducto9,
+                         });
+     $("#backoffice9").modal('toggle');
+});
+               
+   
+
+                       
+ 
+</script>
+
+</body>
+</html>
+
+
+  
+    <!--TODOS-LOS-PROVEEDORES--(HIDE)
+<section id="products" style="background-color:#838486;">
+        
+        <div class="container">
+            
+                <article class="col-xs-12 col-sm-4">
+                        <center>
+                            <img src="imagenes/clientes/ayan.jpg" width="270">
+                        </center>
+                    </article>
+                    <article class="col-xs-12 col-sm-4">
+                        <center>
+                            <img src="imagenes/clientes/bael.jpg" width="270">
+                        </center>
+                    </article>   
+                    <article class="col-xs-12 col-sm-4">
+                        <center>
+                            <img src="imagenes/clientes/cambre.jpg" width="270">
+                        </center>
+                    </article>     
+                </div>
+            <div class="container">
+            <article class="col-xs-12 col-sm-4">
+                        <center>
+                            <img src="imagenes/clientes/conextube.jpg" width="270">
+                        </center>
+                    </article>            
+                    <article class="col-xs-12 col-sm-4">
+                        <center>
+                            <img src="imagenes/clientes/hellerman.jpg" width="270">
+                        </center>
+                    </article>                       
+                    <article class="col-xs-12 col-sm-4">
+                        <center>
+                            <img src="imagenes/clientes/imsa.jpg" width="270">
+                        </center>
+                    </article>     
+            </div>
+            <div class="container">
+            <article class="col-xs-12 col-sm-4">
+                        <center>
+                            <img src="imagenes/clientes/jeluz.jpg" width="270">
+                        </center>
+                    </article>            
+                    <article class="col-xs-12 col-sm-4">
+                        <center>
+                            <img src="imagenes/clientes/kalop.jpg" width="270">
+                        </center>
+                    </article>                       
+                    <article class="col-xs-12 col-sm-4">
+                        <center>
+                            <img src="imagenes/clientes/Logo_Sica.jpg" width="270">
+                        </center>
+                    </article>     
+            </div>
+            <div class="container">
+                <article class="col-xs-12 col-sm-4">
+                        <center>
+                            <img src="imagenes/clientes/philips.jpg" width="270">
+                        </center>
+                    </article>            
+                    <article class="col-xs-12 col-sm-4">
+                        <center>
+                            <img src="imagenes/clientes/prodem.jpg" width="270">
+                        </center>
+                    </article>                       
+                    <article class="col-xs-12 col-sm-4">
+                        <center>
+                            <img src="imagenes/clientes/prysmian.jpg" width="270">
+                        </center>
+                    </article>
+                </div>
+        <section><br /><br /></section>
+    </section>
+
+ "_id" : ObjectId("547dbe5d22fc806a6c8f9af3"),
+    "Source" : "",
+    "PublishedOn" : ISODate("2014-12-02T00:00:00.000Z"),
+    "City" : "",
+    "Global" : 1,
+    "Title" : "",
+    "ImgUrl" : "",
+    "IsHtml" : 0,
+    "Language" : "Español",
+    "MySqlId" : 41,
+    "Body" : "<p></p>"
+
+
+
+
+
+
+
+
+    -->
