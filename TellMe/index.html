@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+	<head><meta http-equiv="content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electro927</title>
+    <link href="./content/bootstrap.css" rel="stylesheet" type="text/css">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+	<link href="http://fonts.googleapis.com/css?family=Oswald:300,400,700" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Source+Sans Pro:200italic,200,300italic,300,400italic,400,600italic,600,700italic,700,900italic,900" rel="stylesheet" type="text/css">
+	<link href="./content/site.css" rel="stylesheet" type="text/css">
+    <link href='http://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+	<link href="./content/palette1.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="content/style.css" />
+	<script src="./scripts/jquery-2.1.1.js"></script>
+    <script src="./scripts/bootstrap.js"></script>   
+    <script src="https://cdn.firebase.com/js/client/2.0.5/firebase.js"></script>
+    <script src="./productos/Ofertas.js" type="text/javascript"></script>
+    
+    <style>
+        figure{
+            height: 172px;
+        }
+        .map{
+            border-radius:20px;
+            overflow-x:scroll;
+
+        }
+        body{
+            overflow-x:hidden;
+        }
+        .box {
+            background-color: #EE7B3E;
+            border: 6px solid white;
+            border-radius:20px;
+            height: 373px;
+           
+            
+        }
+        .img-product{
+            border-radius:10px;
+            
+        }
+                .social-btn{
+            position: fixed;
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+            height: 50px;
+            z-index: 1000;
+       }
+       .face{
+            left: -85px;
+            top: 58%;
+       }
+       .ml{
+        opacity: .8;
+        border-radius: 10px;
+        width: 130px;
+        position: absolute;
+        top: 5px;
+        right: 40px;
+        z-index: 1000;
+        height: 40px;
+       }
+       .ml:hover{
+        opacity: 1;
+       }
+        #carousel-campaigns img{
+            border-radius: 10px;
+        }
+        #section-services .icon:hover{
+            background-color: #ffffff ;
+            border: 7px solid #EE7B3E;
+        }
+        #text-quienes-somos p{
+            font-family: 'Ubuntu', sans-serif;
+        }
+        .center2{
+    position: absolute;
+    left: 50%;
+    width: 400px;
+    margin-left: -200px;
+            margin-top: 100px;
+    
+}
+        .img-banner{
+            float: right;
+        }
+        .text-banner{
+            margin-top: 230px;
+            margin-left: 25px;
+        }
+        #section-map{
+            background-image: url(imagenes/background-map.png);
+            image-resolution: from-image;
+            height: 60vh;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        
+    </style>
+</head>
+<body>
+
+<div id="navbar-main" class="navbar navbar-default navbar-static-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="#" class="navbar-brand"></a>
+        </div>
+        <div class="navbar-collapse collapse" style="float:left; margin-left:-80px">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#section-intro" class="ancla">QUIENES SOMOS</a></li>
+                <li><a href="#section-services" class="ancla">SERVICIOS</a></li>
+                <li><a href="#section-map" class="ancla">DONDE ESTAMOS</a></li>
+                <li><a id="showMore" href="#section-clients" class="ancla">PROVEEDORES</a></li>
+                <li><a href="#section-contact" class="ancla">CONTACTO</a></li>
+                <li style="margin-left:250px;margin-top:5px;display:inline;"><a href="#section-campaigns" style="padding:10px;" class="contact-btn-nav-bar ancla">Ofertas</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<section id="section-services">
+
+    <h2 class="division-header text-center"><span>Servicios</span></h2>
+
+    <div class="container">
+        <div class="row">
+			<a href="#" data-toggle="modal" data-target="#marketing_deportivo">
+				<article class="col-xs-12 col-sm-4 text-center">
+					<div class="icon img-circle center-block"><span class="fa fa-gear"></span></div>
+					<h4>ASESORAMIENTO TECNICO</h4>
+				</article>
+			</a>
+			<a href="#" data-toggle="modal" data-target="#eventos">
+				<article class="col-xs-12 col-sm-4 text-center">
+					<div  class="icon img-circle center-block"><img style="margin-bottom:30px;opacity:.8" src="envios.png" width="130" /></div>
+					<h4>ENVIOS PROGRAMADOS</h4>
+				</article>
+			</a>
+
+			<a href="#" data-toggle="modal" data-target="#campanas_rse">
+				<article class="col-xs-12 col-sm-4 text-center">
+					<div class="icon img-circle center-block"><img style="margin-bottom:30px;opacity:.8" src="iluminacion.png" width="100" /></div>
+					<h4>PROYECTO ILUMINACÍON</h4>
+				</article>
+			</a>
+        </div>
+    </div>
+
+</section>
+
+
+
+<script src="scripts/backOffice.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+    
+    $('#banner').hide();
+    $('#text-banner').hide();
+    
+    //show button facebook
+    $(".social-btn").mouseenter(function () {
+        $(this).css("left" , "0")
+    });   
+    $(".social-btn").mouseleave(function () {
+        $(this).delay(300).css("left" , "-85px")
+    });
+    
+    $(".center2").animate({opacity: 1},   500, function(){
+                $(this).delay(1000).animate({left : "300px"},2500);
+                $('#banner').delay(3000).fadeIn(2000);
+                $('#text-banner').delay(4500).fadeIn(1500);
+    });
+    
+   
+
+    /*
+    $("#producto1 h1").html( product1.Nombre );
+    $("#producto1 h2").html("$ " + product1.precio);
+    $("#producto1 p").html();
+    $("#img1").attr("src", product1.imgUrl);
+    
+    $("#producto2 h1").html(product2.Nombre);
+    $("#producto2 h2").html("$ " + product2.precio);
+    $("#producto2 p").html();
+    $("#img2").attr("src", product2.imgUrl);
+
+    $("#producto3 h1").html(product3.Nombre);
+    $("#producto3 h2").html("$ " + product3.precio);
+    $("#producto3 p").html();
+    $("#img3").attr("src", product3.imgUrl);
+
+    $("#producto4 h1").html(product4.Nombre);
+    $("#producto4 h2").html("$ " + product4.precio);
+    $("#producto4 p").html();
+    $("#img4").attr("src", product4.imgUrl);
+    
+    $("#producto5 h1").html(product5.Nombre);
+    $("#producto5 h2").html("$ " + product5.precio);
+    $("#producto5 p").html();
+    $("#img5").attr("src", product5.imgUrl);
+    
+    $("#producto6 h1").html(product6.Nombre);
+    $("#producto6 h2").html("$ " + product6.precio);
+    $("#producto6 p").html();
+    $("#img6").attr("src", product6.imgUrl);
+    
+    $("#producto7 h1").html(product7.Nombre);
+    $("#producto7 h2").html("$ " + product7.precio);
+    $("#producto7 p").html();
+    $("#img7").attr("src", product7.imgUrl);
+    
+    $("#producto8 h1").html(product8.Nombre);
+    $("#producto8 h2").html("$ " + product8.precio);
+    $("#producto8 p").html();
+    $("#img8").attr("src", product8.imgUrl);
+    
+    $("#producto9 h1").html(product9.Nombre);
+    $("#producto9 h2").html("$ " + product9.precio);
+    $("#producto9 p").html();
+    $("#img9").attr("src", product9.imgUrl);
+    
+    
+    
+    if(product1.imgUrl == null){
+        $("#img1").attr("src" , imgDefault)
+    }
+    if(product2.imgUrl == null){
+        $("#img2").attr("src" , imgDefault)
+    }
+    if(product3.imgUrl == null){
+        $("#img3").attr("src" , imgDefault)
+    }
+    if(product4.imgUrl == null){
+        $("#img4").attr("src" , imgDefault)
+    }
+    if(product5.imgUrl == null){
+        $("#img5").attr("src" , imgDefault)
+    }
+    if(product6.imgUrl == null){
+        $("#img6").attr("src" , imgDefault)
+    }
+    if(product7.imgUrl == null){
+        $("#img7").attr("src" , imgDefault)
+    }
+    if(product8.imgUrl == null){
+        $("#img8").attr("src" , imgDefault)
+    }
+    if(product9.imgUrl == null){
+        $("#img9").attr("src" , imgDefault)
+    }
+*/
+    $('.ancla').click(function(){
+        var link = $(this);
+        var anchor  = link.attr('href');
+        $('html, body').stop().animate({
+            scrollTop: jQuery(anchor).offset().top
+        }, 1000);
+        return false;
+    });
+    
+    
+    
+    
+
+    
+</script>
+
+</body>
+</html>
+
+
+  
+    <!--TODOS-LOS-PROVEEDORES--(HIDE)
+<section id="products" style="background-color:#838486;">
+        
+        <div class="container">
+            
+                <article class="col-xs-12 col-sm-4">
+                        <center>
+                            <img src="imagenes/clientes/ayan.jpg" width="270">
+                        </center>
+                    </article>
+                    <article class="col-xs-12 col-sm-4">
+                        <center>
+                            <img src="imagenes/clientes/bael.jpg" width="270">
+                        </center>
+                    </article>   
+                    <article class="col-xs-12 col-sm-4">
+                        <center>
+                            <img src="imagenes/clientes/cambre.jpg" width="270">
+                        </center>
+                    </article>     
+                </div>
+            <div class="container">
+            <article class="col-xs-12 col-sm-4">
+                        <center>
+                            <img src="imagenes/clientes/conextube.jpg" width="270">
+                        </center>
+                    </article>            
+                    <article class="col-xs-12 col-sm-4">
+                        <center>
+                            <img src="imagenes/clientes/hellerman.jpg" width="270">
+                        </center>
+                    </article>                       
+                    <article class="col-xs-12 col-sm-4">
+                        <center>
+                            <img src="imagenes/clientes/imsa.jpg" width="270">
+                        </center>
+                    </article>     
+            </div>
+            <div class="container">
+            <article class="col-xs-12 col-sm-4">
+                        <center>
+                            <img src="imagenes/clientes/jeluz.jpg" width="270">
+                        </center>
+                    </article>            
+                    <article class="col-xs-12 col-sm-4">
+                        <center>
+                            <img src="imagenes/clientes/kalop.jpg" width="270">
+                        </center>
+                    </article>                       
+                    <article class="col-xs-12 col-sm-4">
+                        <center>
+                            <img src="imagenes/clientes/Logo_Sica.jpg" width="270">
+                        </center>
+                    </article>     
+            </div>
+            <div class="container">
+                <article class="col-xs-12 col-sm-4">
+                        <center>
+                            <img src="imagenes/clientes/philips.jpg" width="270">
+                        </center>
+                    </article>            
+                    <article class="col-xs-12 col-sm-4">
+                        <center>
+                            <img src="imagenes/clientes/prodem.jpg" width="270">
+                        </center>
+                    </article>                       
+                    <article class="col-xs-12 col-sm-4">
+                        <center>
+                            <img src="imagenes/clientes/prysmian.jpg" width="270">
+                        </center>
+                    </article>
+                </div>
+        <section><br /><br /></section>
+    </section>
+
+
+3A95030935239185#5430393239314B31415400585431303332000000#7D7A16F19ED0AA475A5A24BFFD7F5B7299B1001F#BDE165050F0000000000000000000000
+OKAY [  0.186s]
+finished. total time: 0.188s
+
+C:\Users\manuel\adt-bundle-windows-x86_64-20140624\sdk\platform-tools>fastboot o
+em get_unlock_data
+
+
+    -->
